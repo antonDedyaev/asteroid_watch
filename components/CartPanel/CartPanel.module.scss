@@ -59,6 +59,14 @@
 		line-height: 24px;
 
 		cursor: pointer;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:active {
+			transform: translateY(2px);
+		}
 	}
 }
 

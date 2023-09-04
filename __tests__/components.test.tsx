@@ -3,8 +3,6 @@ import "@testing-library/jest-dom";
 import Header from "@/components/UI/Header/Header";
 import Popup from "@/components/UI/Popup/PopUp";
 import Spinner from "@/components/UI/Spinner/Spinner";
-import ListItem from "@/components/ListItem/ListItem";
-import { asteroid } from "../templates/asteroid";
 
 describe("UI COMPONENTS SHAPSHOT TESTS", () => {
 	it("renders Header unchanged", () => {
@@ -30,19 +28,3 @@ describe("UI COMPONENTS SHAPSHOT TESTS", () => {
 		expect(container).toMatchSnapshot();
 	});
 });
-
-// describe("ORDER BUTTON TESTS", () => {
-// 	it("adds asteroid to cart", () => {
-// 		render(
-// 			<ListItem
-// 				measurementUnit='kilometer'
-// 				asteroid={asteroid}
-// 			/>
-// 		);
-
-// 		const addButton = screen.getByTestId("add-to-cart");
-// 		//const cartContent = screen.getByTestId("cart-value");
-// 		addButton.click();
-// 		expect(addButton).toHaveTextContent("В корзине");
-// 	});
-// });

@@ -65,7 +65,7 @@ const List = ({ asteroids, nextPage }: { asteroids: IAsteroid[]; nextPage: strin
 					onClick={(e) => handleMeasurementToggler(e)}
 				>
 					<button
-						data-id='kilometer'
+						data-testid='kilometer'
 						className={[
 							styles.container__selectorOption,
 							styles.container__selectorOption_selected,
@@ -75,7 +75,7 @@ const List = ({ asteroids, nextPage }: { asteroids: IAsteroid[]; nextPage: strin
 					</button>
 					<span>|</span>
 					<button
-						data-id='lunar'
+						data-testid='lunar'
 						className={styles.container__selectorOption}
 					>
 						в лунных орбитах

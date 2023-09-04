@@ -3,7 +3,7 @@ import IAsteroid from "models/IAsteroid";
 import styles from "./ListItem.module.scss";
 import Image from "next/image";
 import Popup from "../UI/Popup/PopUp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { declineWord } from "@/helpers/declineWord";
 import Link from "next/link";
 import getSavedAsteroids from "@/helpers/getSavedItems";
@@ -15,14 +15,19 @@ interface IListItemProps {
 }
 
 const ListItem = ({ measurementUnit, asteroid, isVisible = true }: IListItemProps) => {
-	const content = getSavedAsteroids();
+	const [asteroids, setAsteroids] = useState<IAsteroid[]>([]);
 
-	const asteroidAdded = content && content.find((item) => item.id === asteroid.id);
+	useEffect(() => {
+		setAsteroids(getSavedAsteroids());
+	}, []);
+
+	const asteroidAdded = asteroids && asteroids.find((item) => item.id === asteroid.id);
+
 	const [popupActive, setPopupActive] = useState(false);
 	const [addedToCart, setAddedToCart] = useState(!!asteroidAdded);
 
 	const orderButtonHandler = (asteroid: IAsteroid) => {
-		const savedAsteroids = getSavedAsteroids();
+		const savedAsteroids = getSavedAsteroids() ?? [];
 
 		const duplicate = savedAsteroids.find((item) => item.id === asteroid.id);
 		if (duplicate) {
@@ -46,7 +51,7 @@ const ListItem = ({ measurementUnit, asteroid, isVisible = true }: IListItemProp
 					{measurementUnit === "kilometer" ? (
 						<div>{asteroid.approachDistance.kilometers.toLocaleString("ru-RU")} км</div>
 					) : (
-						<div>
+						<div data-testid='meas-unit'>
 							{asteroid.approachDistance.lunar}{" "}
 							{declineWord(asteroid.approachDistance.lunar, [
 								"лунная орбита",
@@ -57,8 +62,6 @@ const ListItem = ({ measurementUnit, asteroid, isVisible = true }: IListItemProp
 					)}
 
 					<svg
-						// width='96'
-						// height='6'
 						viewBox='0 0 96 6'
 						fill='none'
 						xmlns='http://www.w3.org/2000/svg'
