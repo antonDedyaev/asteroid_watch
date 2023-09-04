@@ -1,34 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Asteroid Watch
 
-## Getting Started
+The app is based on NextJS 13.
+There are three pages. The homepage lists a number of asteroids and corresponding data fetched from NASA Asteroids - NeoWs API. You can аdd any asteroid to cart for subsequent destruction by ARMAGEDDON team. The data is loaded on scrolling until there is nothing more to fetch. You can look through details about the asteroid, including its name, diameter, distance to earth (switch between km / lunar MU), maximum approach data and hazard status. Clicking on the asteroid name will bring you to the asteroid page, where the entire approach data alongside the asteroid details are listed. The cart panel to the right of the page is designed to confirm the order and upon clicking on the button you will find yourself on the order page. From there you can browse through the list of added asteroids.
+The layout is responsive and has cross-browser support.
 
-First, run the development server:
+## Install:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+make install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Compile and run in dev mode
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+make dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Build for production
 
-## Learn More
+```
+make build
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Lint and fix files
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+make lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Run tests
 
-## Deploy on Vercel
+```
+make test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Stack:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Typescript
+- Next 13
+- Sass
+- Jest
+- Eslint
+
+---
+
+Приложение написано на NextJS 13.
+На главной странице представлен список атероидов с соответствующими данными, полученными с NASA Asteroids - NeoWs API. Добавляйте астеройды в корзину для последующего уничтожения командой ARMAGEDDON. Данные подгружаются порциями при прокрутке до того момента, пока подгружать будет нечего. Просматривайте подробную информацию об астероиде, включая его название, диаметр, расстояние до земли (можно переключаться между ЕИ в км / лунных орбитах), время и дату максимального сближения, а также статус угрозы. По нажатию на названии астрероида вы перейдете на страницу астероида, где представлена вся информация о его сближениях с и о самом астероиде. Корзина в правой части страницы предназначена для подтверждения заказа, и по нажатию на кнопку отправки открывается страница успешного заказа, где перечислены заказанные сближения.
+У приложения адаптивная и кроссбраузерная верстка.
+
+## Установка:
+
+```
+make install
+```
+
+### Запуск в режиме разработки
+
+```
+make dev
+```
+
+### Сборка для продакшена
+
+```
+make build
+```
+
+### Запуск линтера и исправление ошибок
+
+```
+make lint
+```
+
+### Запуск тестов
+
+```
+make test
+```
+### Используемый стек:
+
+- Typescript
+- Next 13
+- Sass
+- Jest
+- Eslint

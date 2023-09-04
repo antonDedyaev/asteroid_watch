@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI COMPONENTS SHAPSHOT TESTS renders Header unchanged 1`] = `
+<div>
+  <div
+    class="headerContainer"
+    role="header"
+  >
+    <div
+      class="headerContainer__title"
+    >
+      ARMAGEDDON 2023
+    </div>
+    <div
+      class="headerContainer__body"
+    >
+      <span>
+        ООО “Команда им. Б. Уиллиса”.
+      </span>
+      <span>
+        Взрываем астероиды с 1998 года.
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UI COMPONENTS SHAPSHOT TESTS renders PopUp unchanged 1`] = `
+<div
+  class="popupContainer__content popupContainer__content_active"
+>
+  Предупреждающая модалка
+</div>
+`;
+
+exports[`UI COMPONENTS SHAPSHOT TESTS renders Spinner unchanged 1`] = `
+<div>
+  <div
+    class="spinnerContainer"
+  />
+</div>
+`;
