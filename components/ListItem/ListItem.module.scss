@@ -1,0 +1,125 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+
+	&__date {
+		color: $white-base;
+
+		font-family: Helvetica;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 32px;
+	}
+
+	&__metrics {
+		display: flex;
+		align-items: flex-start;
+		gap: 8px;
+		align-self: stretch;
+
+		img {
+			align-self: center;
+		}
+	}
+
+	&__distance {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+
+		color: $white-base;
+		text-align: center;
+
+		font-family: Helvetica;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px;
+
+		svg {
+			width: auto;
+			height: auto;
+		}
+	}
+
+	&__name {
+		color: $white-base;
+		font-family: Helvetica;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 24px;
+		-webkit-text-decoration-line: underline;
+		text-decoration-line: underline;
+	}
+
+	&__diameter {
+		color: $white-base;
+		font-family: Helvetica;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 16px;
+	}
+
+	&__status {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		align-self: stretch;
+	}
+
+	&__order {
+		display: flex;
+		padding: 2px 11px;
+		align-items: center;
+		gap: 2px;
+
+		border-radius: 16px;
+		border: none;
+		background: $orange-smooth;
+
+		color: $orange;
+		font-family: Helvetica;
+		font-size: 11px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 20px;
+		letter-spacing: 1px;
+
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&_added {
+			color: $red-smooth;
+			// pointer-events: none;
+		}
+
+		&_hidden {
+			display: none;
+		}
+
+		&:hover {
+			background: $orange;
+			color: $white-base;
+		}
+
+		&:active {
+			transform: translateY(3px);
+		}
+	}
+
+	&__hazardous {
+		color: #e3e5e5;
+
+		font-family: Helvetica;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+}

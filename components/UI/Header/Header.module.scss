@@ -1,0 +1,31 @@
+.headerContainer {
+	width: 375px;
+	display: flex;
+	flex-direction: column;
+
+	align-items: flex-start;
+	gap: 8px;
+	padding: 16px;
+
+	&__title {
+		width: 288px;
+		color: $orange;
+		font-family: Passion One;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-self: stretch;
+
+		color: $white-base;
+		font-family: Helvetica;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px;
+	}
+}

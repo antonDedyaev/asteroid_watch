@@ -1,0 +1,38 @@
+.approachContainer {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+	padding: 10px 15px;
+	background: $dark;
+	border-radius: 10px;
+
+	font-size: 16px;
+	line-height: 150%;
+
+	tr > td:first-child {
+		font-style: italic;
+	}
+
+	tr > td:last-child {
+		padding-left: 14px;
+		font-weight: 700;
+	}
+
+	// tr > td {
+	// 	border-bottom: 1px solid gray;
+	// }
+}
+
+@media screen and (max-width: 500px) {
+	.approachContainer {
+		font-size: 12px;
+		margin-right: 8px;
+		padding: 10px 8px;
+
+		tr > td:last-child {
+			padding-left: 8px;
+			font-weight: 700;
+			white-space: nowrap;
+		}
+	}
+}

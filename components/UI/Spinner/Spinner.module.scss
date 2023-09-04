@@ -1,0 +1,31 @@
+.spinnerContainer::after {
+	content: "";
+	display: flex;
+	margin: 50px 0;
+	width: 50px;
+	height: 50px;
+	border: 5px solid $dark;
+	border-top-color: $orange;
+	border-bottom-color: $orange;
+	border-radius: 50%;
+	-webkit-animation: loading;
+	animation: loading 1s linear infinite;
+}
+
+@-webkit-keyframes loading {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+@keyframes loading {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+@media screen and (max-width: 930px) {
+	.spinnerContainer::after {
+		margin-bottom: 100px;
+	}
+}
