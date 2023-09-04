@@ -1,0 +1,65 @@
+.mainContainer {
+	position: relative;
+	display: flex;
+	width: 100vw;
+	min-height: 100vh;
+
+	&::before {
+		content: "";
+		background-attachment: fixed;
+		background-image: url("/earth.png");
+		background-repeat: no-repeat;
+		background-size: 400px 620px;
+		background-position: top 138px left 0;
+		position: absolute;
+
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+	}
+
+	&__wrapper {
+		position: relative;
+	}
+
+	&__backgroundImg {
+		position: absolute;
+
+		top: 138px;
+		left: 0px;
+		display: flex;
+		flex-shrink: 0;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.mainContainer {
+		&::before {
+			content: "";
+			background-image: url("/earth_sm.png");
+			background-size: 304px 436px;
+		}
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.mainContainer {
+		&::before {
+			content: "";
+			background-image: url("/earth_sm.png");
+			background-size: 240px 376px;
+			// background-position: top 138px left -240px;
+		}
+	}
+}
+
+@media screen and (max-width: 680px) {
+	.mainContainer {
+		&::before {
+			content: "";
+			background-size: 377px 456px;
+			background-position: top 138px left -329px;
+		}
+	}
+}
