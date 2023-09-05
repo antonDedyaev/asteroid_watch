@@ -9,6 +9,14 @@ import { useEffect, useState } from "react";
 const CartPanel = () => {
 	const [asteroids, setAsteroids] = useState<IAsteroid[]>([]);
 
+	const handleSendButtonHandler = () => {
+		const storedAsteroids = getSavedAsteroids();
+		if (!storedAsteroids) {
+			return;
+		}
+		router.push("/order");
+	};
+
 	useEffect(() => {
 		setAsteroids(getSavedAsteroids());
 	}, []);
@@ -32,7 +40,7 @@ const CartPanel = () => {
 				</div>
 				<button
 					className={styles.containerBody__button}
-					onClick={() => asteroids && router.push("/order")}
+					onClick={handleSendButtonHandler}
 				>
 					Отправить
 				</button>
