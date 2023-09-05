@@ -1,8 +1,8 @@
 import { IAsteroidData, IApproachData } from 'models/IAsteroidData';
+import axios from 'axios';
 
 const fetchAsteroidData = async (id: string) => {
-    const response = await fetch(`https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=qhemciUMn4zGMskFNG9gq1oKMkeKB9i14I0zwe8s`)
-    const data = await response.json();
+    const { data } = await axios.get(`https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`)
 
     const approaches: IApproachData[] = data.close_approach_data.map((item: any) => {
         const approachData: IApproachData = {

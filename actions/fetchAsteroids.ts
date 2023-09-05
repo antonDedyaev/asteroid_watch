@@ -1,14 +1,11 @@
 import IAsteroid from 'models/IAsteroid';
+import axios from 'axios';
 
 const fetchAsteroids = async (
 	url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${new Date()
-		.toLocaleDateString()
-		.split(".")
-		.reverse()
-		.join("-")}&api_key=qhemciUMn4zGMskFNG9gq1oKMkeKB9i14I0zwe8s`
+		.toISOString()}&api_key=${process.env.NEXT_PUBLIC_API_KEY}`
 ) => {
-	const response = await fetch(url);
-	const data = await response.json();
+	const { data } = await axios.get(url);
 	const nextPage: string = data.links.next;
 
 	const asteroidsData: IAsteroid[] = [];
@@ -49,6 +46,6 @@ const fetchAsteroids = async (
 		});
 
 	return { asteroids: sortedAsteroids.slice(0, sortedAsteroids.length - 1), nextPage };
-};
+}
 
 export default fetchAsteroids;

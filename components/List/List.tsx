@@ -34,7 +34,7 @@ const List = ({ asteroids, nextPage }: { asteroids: IAsteroid[]; nextPage: strin
 		const { ref, inView } = useInView();
 
 		const loadMoreAsteroids = async () => {
-			const newData = await fetchAsteroids(fetchedPage);
+			const newData = await fetchAsteroids(fetchedPage.replace("http", "https"));
 
 			setCurrAsteroids([...currAsteroids, ...newData.asteroids]);
 			setFetchedPage(newData.nextPage);
