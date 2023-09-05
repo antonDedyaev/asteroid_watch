@@ -6,6 +6,8 @@
 	background: $dark;
 	border-radius: 10px;
 
+	text-align: left;
+
 	font-size: 16px;
 	line-height: 150%;
 
@@ -17,10 +19,6 @@
 		padding-left: 14px;
 		font-weight: 700;
 	}
-
-	// tr > td {
-	// 	border-bottom: 1px solid gray;
-	// }
 }
 
 @media screen and (max-width: 500px) {

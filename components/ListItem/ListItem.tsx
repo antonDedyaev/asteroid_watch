@@ -40,7 +40,7 @@ const ListItem = ({ measurementUnit, asteroid, isVisible = true }: IListItemProp
 		if (cartContent)
 			cartContent.innerHTML = `${String(savedAsteroids.length)} ${declineWord(
 				savedAsteroids.length,
-				["астеройд", "астеройда", "астеройдов"]
+				["астероид", "астероида", "астероидов"]
 			)}`;
 	};
 	return (
@@ -114,7 +114,7 @@ const ListItem = ({ measurementUnit, asteroid, isVisible = true }: IListItemProp
 				isActive={popupActive}
 				setIsActive={setPopupActive}
 			>
-				Астеройд уже в списке на уничтожение!
+				Астероид уже в списке на уничтожение!
 			</Popup>
 		</div>
 	);
