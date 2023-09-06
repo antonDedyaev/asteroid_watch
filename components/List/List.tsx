@@ -8,10 +8,19 @@ import { useInView } from "react-intersection-observer";
 import Spinner from "../UI/Spinner/Spinner";
 import fetchAsteroids from "@/actions/fetchAsteroids";
 
-const List = ({ asteroids, nextPage }: { asteroids: IAsteroid[]; nextPage: string }) => {
+const List = ({
+	asteroids,
+	preloadedData,
+	nextPage,
+}: {
+	asteroids: IAsteroid[];
+	preloadedData: IAsteroid[];
+	nextPage: string;
+}) => {
 	const [measurementUnit, setMeasurementUnit] = useState("kilometer");
 	const [currAsteroids, setCurrAsteroids] = useState<IAsteroid[]>(asteroids);
 	const [fetchedPage, setFetchedPage] = useState<string>(nextPage);
+	const [preloadedPage, setPreloadedPage] = useState<IAsteroid[]>(preloadedData);
 
 	const handleMeasurementToggler = (e: MouseEvent<HTMLDivElement>) => {
 		const selectedMU = document.querySelector(`.${styles.container__selectorOption_selected}`);
@@ -30,15 +39,22 @@ const List = ({ asteroids, nextPage }: { asteroids: IAsteroid[]; nextPage: strin
 		}
 	};
 
+	const loadMoreAsteroids = async () => {
+		if (
+			currAsteroids[currAsteroids.length - 1].id !==
+			preloadedPage[preloadedPage.length - 1].id
+		) {
+			setCurrAsteroids([...currAsteroids, ...preloadedPage]);
+			const newAsteroids = await fetchAsteroids(fetchedPage.replace("http", "https"));
+			setPreloadedPage(newAsteroids.asteroids);
+			setFetchedPage(newAsteroids.nextPage);
+		} else {
+			return;
+		}
+	};
+
 	const ScrollLoader = () => {
 		const { ref, inView } = useInView();
-
-		const loadMoreAsteroids = async () => {
-			const newData = await fetchAsteroids(fetchedPage.replace("http", "https"));
-
-			setCurrAsteroids([...currAsteroids, ...newData.asteroids]);
-			setFetchedPage(newData.nextPage);
-		};
 
 		useEffect(() => {
 			if (inView) {

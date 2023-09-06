@@ -5,13 +5,15 @@ import Header from "@/components/UI/Header/Header";
 
 const HomePage = async () => {
 	const { asteroids, nextPage } = await fetchAsteroids();
+	const preloadedPage = await fetchAsteroids(nextPage.replace("http", "https"));
 
 	return (
 		<>
 			<Header />
 			<List
 				asteroids={asteroids}
-				nextPage={nextPage}
+				preloadedData={preloadedPage.asteroids}
+				nextPage={preloadedPage.nextPage}
 			/>
 			<CartPanel />
 		</>
